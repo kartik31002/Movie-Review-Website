@@ -1,52 +1,46 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-  </head>
-  <body>
-    <nav class="navbar navbar-expand-lg bg-light">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">MURKH</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Popular</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Genres
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="/Action">Action</a></li>
-                <li><a class="dropdown-item" href="/Adventure">Adventure</a></li>
-                <li><a class="dropdown-item" href="/Animation">Animation</a></li>
-                <li><a class="dropdown-item" href="/Comedy">Comedy</a></li>
-                <li><a class="dropdown-item" href="/Crime">Crime</a></li>
-                <li><a class="dropdown-item" href="/Drama">Drama</a></li>
-                <li><a class="dropdown-item" href="/Family">Family</a></li>
-                <li><a class="dropdown-item" href="/Fantasy">Fantasy</a></li>
-                <li><a class="dropdown-item" href="/History">History</a></li>
-                <li><a class="dropdown-item" href="/Horror">Horror</a></li>
-                <li><a class="dropdown-item" href="/Music">Music</a></li>
-                <li><a class="dropdown-item" href="/Romance">Romance</a></li>
-                <li><a class="dropdown-item" href="/Science Fiction">Science Fiction</a></li>
-                <li><a class="dropdown-item" href="/Thriller">Thriller</a></li>
-              </ul>
-            </li>
-          </ul>
-          <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </form>
-        </div>
-      </div>
-    </nav>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-  </body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %}
+Home
+{% endblock title %}
+
+{% block body %}
+
+
+{% for i in reponse2 %}
+<div class="card-group">  
+  <div class="card  my-4 px-4 mx-4" style="width: 18rem;">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{i["title"]}</h5>
+      <p class="card-text">{i["overview"]}</p>
+      <a href="#" class="btn btn-primary">Reviews</a>
+    </div>
+  </div>
+  {% comment %} https://image.tmdb.org/t/p/w300/{{i["poster_path"]}} <div class="card  my-4 px-4 mx-4" style="width: 18rem;">
+    <img src="https://image.tmdb.org/t/p/w300/{{(i+1)["poster_path"]}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{i.title}}</h5>
+      <p class="card-text">{{i.overview}}</p>
+      <a href="#" class="btn btn-primary">Reviews</a>
+    </div>
+  </div>
+  <div class="card  my-4 px-4 mx-4" style="width: 18rem;">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{i.title}}</h5>
+      <p class="card-text">{{i.overview}}</p>
+      <a href="#" class="btn btn-primary">Reviews</a>
+    </div>
+  </div>
+  <div class="card  my-4 px-4 mx-4" style="width: 18rem;">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{i.title}}</h5>
+      <p class="card-text">{{i.overview}}</p>
+      <a href="#" class="btn btn-primary">Reviews</a>
+    </div>
+  </div> {% endcomment %}
+</div>
+{% endfor %}
+{% endblock body %}
