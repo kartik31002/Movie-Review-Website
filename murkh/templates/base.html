@@ -12,7 +12,7 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
-        <a class="navbar-brand" href="">MURKH</a>
+        <a class="navbar-brand" href= "index">MURKH</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -43,17 +43,21 @@
               </ul>
             </li>
           </ul>
-          <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <form class="d-flex" role="search" method = "post" action = "/searchresults/">
+            {% csrf_token %}
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="searchTerm">
             <button class="btn btn-outline-success" type="submit">Search</button>
           </form>
           <a class="nav-link active" aria-current="/Login" href="/popular" style="color:white"> &nbsp; Log In </a>
-          <a class="nav-link active" aria-current="/Signin" href="/popular" style="color:white"> &nbsp; Sign In </a>
+          <a class="nav-link active" aria-current="/Signin" href="/signup" style="color:white"> &nbsp; Sign In </a>
         </div>
       </div>
     </nav>
-    {% block body %}
-    {% endblock body %}
+    
+
+
+{% block body %}
+{% endblock body %}
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>

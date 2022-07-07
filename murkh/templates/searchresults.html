@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Search Results
+{% endblock title %}
+
+{% block body %}
+
+
+{% for key, value in response3.items %}
+
+  <div class="card mb-3 mx-5 my-4" style="max-width: 540px;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="https://image.tmdb.org/t/p/w300{{ value.poster_path }}" class="img-fluid rounded-start" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">{{ value.title }}</h5>
+          <p class="card-text">{{ value.overview }}</p>
+          <form method = "post" action = "/review/">
+            <input type = "hidden" name = "movieid" value = "{{ key }}" /> 
+            <button type="submit" class="btn btn-secondary">Reviews</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+{% endfor %}
+{% endblock body %}
