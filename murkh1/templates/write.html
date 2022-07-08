@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ response.title }}
+{% endblock title %}
+
+{% block body %}
+{% comment %} <div class="row row-cols-1 row-cols-md-2 g-4">
+    <div class="col"> {% endcomment %}
+
+<div class="row row-cols-1 row-cols-md-2 g-4 my-4 mx-4">
+    <div class="col">
+        <div class="card bg-dark text-white ">
+            <img src="https://image.tmdb.org/t/p/w300{{ response.poster_path }}" class="card-img" alt="..." size = >
+            <div class="card-img-overlay">
+            <h4 class="card-title">{{ response.title }}</h4>
+            <p class="card-text">{{ response.overview }}</p>
+        </div>
+    </div>
+</div>
+<div class="col">
+    <h4>Write a Review!</h4>
+    
+    <form method = "post" action = "/write/">
+        {% csrf_token %}
+        <div class="mb-3" >
+            <label for="exampleInputEmail1" class="form-label">Username</label>
+            <input type="username" class="form-control" name="username" aria-describedby="usernameHelp">
+          </div>
+          <div class="mb-3" >
+            <label for="exampleInputEmail1" class="form-label">Email address</label>
+            <input type="email" class="form-control" name="email" aria-describedby="emailHelp">
+          </div>
+          <div class="mb-3" >
+            <label for="exampleInputEmail1" class="form-label">Review</label>
+        <textarea class="form-control" aria-label="With textarea" rows = "10" name = "review"></textarea></div>
+        <div class = "container-fluid" style = "width: 100px;"><button class="btn btn-outline-success my-5" type="submit">Submit</button></div>
+      </form>
+</div>
+
+
+    
+
+  
+{% endblock body %}
