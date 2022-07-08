@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 
 {% block title %}
-Search Results
+Home
 {% endblock title %}
 
 {% block body %}
 
-<div class = "my-4 mx-5"><h3>Search Results </h3></div>
+<div class = "my-4 mx-5"><h3>Genre - {{ genre }} </h3></div>
 
 {% for key, value in response3.items %}
 
@@ -20,6 +20,7 @@ Search Results
           <h5 class="card-title">{{ value.title }}</h5>
           <p class="card-text">{{ value.overview }}</p>
           <form method = "post" action = "/review/">
+            {% csrf_token %}
             <input type = "hidden" name = "movieid" value = "{{ key }}" /> 
             <button type="submit" class="btn btn-secondary">Reviews</button>
           </form>
@@ -29,4 +30,5 @@ Search Results
   </div>
   
 {% endfor %}
+
 {% endblock body %}

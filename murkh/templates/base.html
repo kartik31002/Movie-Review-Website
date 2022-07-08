@@ -12,44 +12,74 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
-        <a class="navbar-brand" href= "index">MURKH</a>
+        <a class="navbar-brand" href= "/index.html">MURKH</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/popular">Popular</a>
-            </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Genres
               </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="/Action">Action</a></li>
-                <li><a class="dropdown-item" href="/Adventure">Adventure</a></li>
-                <li><a class="dropdown-item" href="/Animation">Animation</a></li>
-                <li><a class="dropdown-item" href="/Comedy">Comedy</a></li>
-                <li><a class="dropdown-item" href="/Crime">Crime</a></li>
-                <li><a class="dropdown-item" href="/Drama">Drama</a></li>
-                <li><a class="dropdown-item" href="/Family">Family</a></li>
-                <li><a class="dropdown-item" href="/Fantasy">Fantasy</a></li>
-                <li><a class="dropdown-item" href="/History">History</a></li>
-                <li><a class="dropdown-item" href="/Horror">Horror</a></li>
-                <li><a class="dropdown-item" href="/Music">Music</a></li>
-                <li><a class="dropdown-item" href="/Romance">Romance</a></li>
-                <li><a class="dropdown-item" href="/Science Fiction">Science Fiction</a></li>
-                <li><a class="dropdown-item" href="/Thriller">Thriller</a></li>
-              </ul>
+              {% comment %} <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="/genre">Action</a></li>
+                <li><a class="dropdown-item" href="/genre">Adventure</a></li>
+                <li><a class="dropdown-item" href="/genre">Animation</a></li>
+                <li><a class="dropdown-item" href="/genre">Comedy</a></li>
+                <li><a class="dropdown-item" href="/genre">Crime</a></li>
+                <li><a class="dropdown-item" href="/genre">Drama</a></li>
+                <li><a class="dropdown-item" href="/genre">Family</a></li>
+                <li><a class="dropdown-item" href="/genre">Fantasy</a></li>
+                <li><a class="dropdown-item" href="/genre">History</a></li>
+                <li><a class="dropdown-item" href="/genre">Horror</a></li>
+                <li><a class="dropdown-item" href="/genre">Music</a></li>
+                <li><a class="dropdown-item" href="/genre">Romance</a></li>
+                <li><a class="dropdown-item" href="/genre">Science Fiction</a></li>
+                <li><a class="dropdown-item" href="/genre">Thriller</a></li>
+              </ul> {% endcomment %}
+              <form method = "post" action = "/genre/">
+                {% csrf_token %}
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="width: 100px;">
+                  <li><input type = "hidden" name = "genre" value = "action" /> 
+                    <button type="submit" class="btn btn" style="width: 150px;">Action</button></li>
+                  <li><input type = "hidden" name = "genre" value = "adventure" /> 
+                    <button type="submit" class="btn btn" style="width: 150px;">Adventure</button></li>
+                  <li><input type = "hidden" name = "genre" value = "animatiom" /> 
+                    <button type="submit" class="btn btn" style="width: 150px;">Animation</button></li>
+                  <li><input type = "hidden" name = "genre" value = "comedy" /> 
+                    <button type="submit" class="btn btn" style="width: 150px;">Comedy</button></li>
+                  <li><input type = "hidden" name = "genre" value = "crime" /> 
+                    <button type="submit" class="btn btn" style="width: 150px;">Crime</button></li>
+                  <li><input type = "hidden" name = "genre" value = "drama" /> 
+                    <button type="submit" class="btn btn" style="width: 150px;">Drama</button></li>
+                  <li><input type = "hidden" name = "genre" value = "family" /> 
+                    <button type="submit" class="btn btn" style="width: 150px;">Family</button></li>
+                  <li><input type = "hidden" name = "genre" value = "fantasy" /> 
+                    <button type="submit" class="btn btn" style="width: 150px;">Fantasy</button></li>
+                  <li><input type = "hidden" name = "genre" value = "history" /> 
+                    <button type="submit" class="btn btn" style="width: 150px;">History</button></li>
+                  <li><input type = "hidden" name = "genre" value = "horror" /> 
+                    <button type="submit" class="btn btn" style="width: 150px;">Horror</button></li>
+                  <li><input type = "hidden" name = "genre" value = "music" /> 
+                    <button type="submit" class="btn btn" style="width: 150px;">Music</button></li>
+                  <li><input type = "hidden" name = "genre" value = "romance" /> 
+                    <button type="submit" class="btn btn" style="width: 150px;">Romance</button></li>
+                  <li><input type = "hidden" name = "genre" value = "sciencefiction" /> 
+                    <button type="submit" class="btn btn" style="width: 150px;">Science Fiction</button></li>
+                  <li><input type = "hidden" name = "genre" value = "thriller" /> 
+                    <button type="submit" class="btn btn" style="width: 150px;">Thriller</button></li>
+                  </ul>
             </li>
           </ul>
+        </form>
           <form class="d-flex" role="search" method = "post" action = "/searchresults/">
             {% csrf_token %}
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="searchTerm">
-            <button class="btn btn-outline-success" type="submit">Search</button>
+            <button class="btn btn-outline-success mx-3" type="submit">Search</button>
           </form>
-          <a class="nav-link active" aria-current="/Login" href="/popular" style="color:white"> &nbsp; Log In </a>
-          <a class="nav-link active" aria-current="/Signin" href="/signup" style="color:white"> &nbsp; Sign In </a>
+          <a class="nav-link active mx-3" aria-current="/Login" href="/popular" style="color:white;"> Log In </a>
+          <a class="nav-link active mx-3" aria-current="/Signin" href="/signup" style="color:white;"> Sign In </a>
         </div>
       </div>
     </nav>
