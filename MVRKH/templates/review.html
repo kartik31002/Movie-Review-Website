@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ response.title }}
+{% endblock title %}
+
+{% block body %}
+{% comment %} <div class="row row-cols-1 row-cols-md-2 g-4">
+    <div class="col"> {% endcomment %}
+
+<div class="row row-cols-1 row-cols-md-2 g-4 my-4 mx-4">
+    <div class="col">
+        <div class="card bg-dark text-white ">
+            <img src="https://image.tmdb.org/t/p/w300{{ response.poster_path }}" class="card-img" alt="..." size = >
+            <div class="card-img-overlay">
+            <h4 class="card-title">{{ response.title }}</h4>
+            <p class="card-text">{{ response.overview }}</p>
+        </div>
+    </div>
+</div>
+<div class="col">
+    {% for reviews in review %}
+    
+    <div class="card mb-5" style="width: 40rem;">
+        <div class="card-body">
+          <h5 class="card-title">{{ reviews.username }}</h5>
+          <p class="card-text">{{ reviews.review }}</p>
+          <p class="card-text"><small class="text-muted">Date: {{ reviews.date }}</small></p>
+
+        </div>
+    </div>
+
+    {% endfor %}
+</div>
+
+<div class = "container-fluid my-4" style = "width: 200px;">
+    <form method = "post" action = "/write/">
+        {% csrf_token %}
+        <input type = "hidden" name = "movieid" value = "{{ response.id }}" />
+        <button class="btn btn-outline-secondary" type="submit">Write a Review!</button>
+      </form>
+</div>
+  
+{% endblock body %}
