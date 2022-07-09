@@ -71,6 +71,9 @@ def signup(request):
         if user.objects.filter(email=email): 
             messages.error(request, 'Email already Exists!')
             return render(request, 'signup.html')
+        elif user.objects.filter(username=username):
+            messages.error(request, 'Username already Exists!')
+            return render(request, 'signup.html')
         else:
             User = user(username=username, email=email)
             User.save()
